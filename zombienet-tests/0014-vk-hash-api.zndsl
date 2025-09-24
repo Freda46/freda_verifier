@@ -1,0 +1,10 @@
+Description: Testing that verification keys for all verifier pallets are hashed correctly
+Network: ./network_defs/single_node.toml
+Creds: config
+
+alice: is up
+
+alice: reports node_roles is 4
+
+### Javascript test invocation
+alice: js-script ./js_scripts/0014-vk_hash_api.js return is equal to 1 within 30 seconds

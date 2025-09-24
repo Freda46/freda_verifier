@@ -1,0 +1,64 @@
+[package]
+name = "pallet-risc0-verifier"
+version = "0.1.0"
+description = "A risc0 verifier pallet"
+homepage.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+license = "Apache-2.0"
+
+[lints]
+workspace = true
+
+[dependencies]
+log = { workspace = true }
+hex-literal = { workspace = true }
+risc0-verifier = { workspace = true }
+ciborium = { version = "0.2.2", default-features = false }
+native = { workspace = true, default-features = false }
+hp-verifiers = { workspace = true }
+pallet-verifiers = { workspace = true }
+
+codec = { workspace = true }
+scale-info = { workspace = true }
+sp-core = { workspace = true }
+frame-support = { workspace = true }
+frame-system = { workspace = true }
+frame-benchmarking = { workspace = true, optional = true }
+risc0-derive = { path = "./risc0-derive" }
+
+[dev-dependencies]
+sp-io = { workspace = true, features = ["std"] }
+codec = { workspace = true, features = ["std"] }
+scale-info = { workspace = true, features = ["std"] }
+pallet-balances = { workspace = true }
+rstest = { workspace = true }
+
+[features]
+std = [
+	"ciborium/std",
+	"codec/std",
+	"frame-benchmarking?/std",
+	"frame-support/std",
+	"frame-system/std",
+	"hp-verifiers/std",
+	"log/std",
+	"native/std",
+	"pallet-balances/std",
+	"pallet-verifiers/std",
+	"scale-info/std",
+	"sp-core/std",
+	"sp-io/std",
+]
+default = [ "std" ]
+runtime-benchmarks = [
+	"dep:frame-benchmarking",
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"pallet-verifiers/runtime-benchmarks",
+]
+inject-native-poseidon2 = []
+extend-benchmarks = [ "inject-native-poseidon2" ]

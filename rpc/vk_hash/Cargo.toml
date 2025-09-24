@@ -1,0 +1,39 @@
+[package]
+name = "vk-hash"
+version = "0.1.0"
+description = "Add runtime API for computing the vk hash"
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+license = "Apache-2.0"
+
+[dependencies]
+pallet-freda-verifier = { workspace = true }
+pallet-groth16-verifier = { workspace = true }
+pallet-plonky2-verifier = { workspace = true }
+pallet-ultrahonk-verifier = { workspace = true }
+pallet-ultraplonk-verifier = { workspace = true }
+codec = { default-features = false, workspace = true }
+jsonrpsee = { workspace = true, features = ["client-core", "server", "macros"] }
+sp-core = { default-features = false, workspace = true }
+hp-verifiers = { workspace = true }
+hp-groth16 = { workspace = true }
+serde = { default-features = false, workspace = true }
+volta-runtime = { default-features = false, workspace = true }
+
+[features]
+default = [ "std" ]
+std = [
+	"codec/std",
+	"hp-groth16/std",
+	"hp-verifiers/std",
+	"pallet-freda-verifier/std",
+	"pallet-groth16-verifier/std",
+	"pallet-plonky2-verifier/std",
+	"pallet-ultrahonk-verifier/std",
+	"pallet-ultraplonk-verifier/std",
+	"serde/std",
+	"sp-core/std",
+	"volta-runtime/std",
+]

@@ -1,0 +1,68 @@
+[package]
+name = "pallet-verifiers"
+description = "Abstract verification pallets and provide the commons extrinsics"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+license = "Apache-2.0"
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { workspace = true }
+scale-info = { workspace = true }
+frame-support = { workspace = true }
+frame-benchmarking = { workspace = true, optional = true }
+
+log = { workspace = true }
+
+frame-system = { workspace = true }
+sp-core = { workspace = true }
+sp-io = { workspace = true }
+sp-runtime = { workspace = true }
+
+hp-on-proof-verified = { workspace = true }
+hp-verifiers = { workspace = true }
+pallet-verifiers-macros = { workspace = true }
+
+[dev-dependencies]
+hex-literal = { workspace = true }
+pallet-balances = { workspace = true, features = ["std"] }
+rstest = { workspace = true }
+
+[features]
+default = [ "std" ]
+std = [
+	"codec/std",
+	"frame-benchmarking/std",
+	"frame-support/std",
+	"frame-system/std",
+	"hp-on-proof-verified/std",
+	"hp-verifiers/std",
+	"log/std",
+	"pallet-balances/std",
+	"scale-info/std",
+	"sp-core/std",
+	"sp-io/std",
+	"sp-runtime/std",
+]
+
+try-runtime = [
+	"frame-support/try-runtime",
+	"frame-system/try-runtime",
+	"pallet-balances/try-runtime",
+	"sp-runtime/try-runtime",
+]
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"sp-runtime/runtime-benchmarks",
+]

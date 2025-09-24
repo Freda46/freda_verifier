@@ -1,0 +1,5 @@
+/docs
+**/target/
+.dockerignore
+docker/dockerfiles
+scripts

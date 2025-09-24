@@ -1,0 +1,65 @@
+[package]
+name = "pallet-freda-verifier"
+version = "0.1.0"
+description = "A freda verifier pallet implementation based on pallet-verifiers abstraction."
+homepage.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+license = "GPL-3.0"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { workspace = true }
+scale-info = { workspace = true }
+sp-core = { workspace = true }
+freda_verifier = { git = "https://github.com/zkVerify/freda_verifier.git", default-features = false, tag = "v0.4.0" }
+hp-verifiers = { workspace = true }
+log = "0.4.20"
+hex-literal = { workspace = true, optional = true }
+frame-support = { workspace = true }
+frame-system = { workspace = true }
+frame-benchmarking = { workspace = true, optional = true }
+pallet-verifiers = { workspace = true }
+substrate-bn = "0.6.0"
+serde_json = { version = "1.0.117", optional = true, default-features = false }
+sp-io = { workspace = true, optional = true }
+
+[dev-dependencies]
+freda_verifier = { git = "https://github.com/zkVerify/freda_verifier.git", default-features = false, features = [
+    "serde",
+], tag = "v0.4.0" }
+hex-literal = { workspace = true }
+serde_json = { version = "1.0.117" }
+pallet-balances = { workspace = true }
+
+[features]
+default = [ "std" ]
+std = [
+	"codec/std",
+	"freda_verifier/std",
+	"frame-benchmarking?/std",
+	"frame-support/std",
+	"frame-system/std",
+	"hp-verifiers/std",
+	"log/std",
+	"pallet-balances/std",
+	"pallet-verifiers/std",
+	"scale-info/std",
+	"sp-core/std",
+	"sp-io?/std",
+]
+runtime-benchmarks = [
+	"dep:hex-literal",
+	"dep:serde_json",
+	"dep:sp-io",
+	"freda_verifier/serde",
+	"frame-benchmarking",
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"pallet-verifiers/runtime-benchmarks",
+]

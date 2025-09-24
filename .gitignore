@@ -1,0 +1,24 @@
+target/
+**/*.rs.bk
+.idea
+*.iml
+.secrets
+.vscode
+docker/resources/deploy
+docker/resources/envs/.env
+node_modules
+zombienet-tests/node_modules
+zombienet-tests/yarn.lock
+zombienet-tests/bin
+lcov.info
+benchmarking_errors.txt
+
+# Ignore coverage reports
+coverage_report.json
+coverage_summary.txt
+
+# Ignore output reports
+*_output.txt
+
+# Ignore external libraries
+deps/

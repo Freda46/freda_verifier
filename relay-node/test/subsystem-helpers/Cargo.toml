@@ -1,0 +1,26 @@
+[package]
+name = "node-subsystem-test-helpers"
+description = "Subsystem traits and message definitions"
+publish = false
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+license = "GPL-3.0"
+
+[lints]
+workspace = true
+
+[dependencies]
+async-trait = { workspace = true }
+futures = { workspace = true }
+parking_lot = { workspace = true }
+polkadot-node-subsystem = { workspace = true }
+polkadot-node-subsystem-util = { workspace = true }
+polkadot-primitives = { workspace = true }
+sc-client-api = { workspace = true }
+sc-utils = { workspace = true }
+sp-core = { workspace = true }
+sp-keystore = { workspace = true }
+sc-keystore = { workspace = true }
+sp-keyring = { workspace = true }
+sp-application-crypto = { workspace = true }

@@ -1,0 +1,9 @@
+{
+  "name": "snapshot-balances",
+  "description": "Snapshot account balances and restore them",
+  "version": "0.0.1",
+  "author": "HorizenLabs' Mainchain team",
+  "dependencies": {
+    "@polkadot/api": "15.8.1"
+  }
+}
